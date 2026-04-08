@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "/home/azlan/.npm-global/bin/mcp-server-filesystem",
+      "args": [
+        "/opt/.openclaw-hos/workspace-main",
+        "/opt/.openclaw-hos/workspace-booking",
+        "/opt/.openclaw-hos/workspace-sales",
+        "/opt/.openclaw-hos/workspace-fnb",
+        "/opt/.openclaw-hos/workspace-event",
+        "/opt/.openclaw-hos/workspace-maintenance",
+        "/opt/.openclaw-hos/workspace-housekeeping",
+        "/opt/.openclaw-hos/workspace-concierge",
+        "/opt/.openclaw-hos/workspace-front"
+      ]
+    },
+    "fetch": {
+      "command": "/home/azlan/.npm-global/bin/mcp-fetch",
+      "args": []
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest", "--headless"]
+    }
+  }
+}

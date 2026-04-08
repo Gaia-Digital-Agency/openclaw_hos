@@ -1,0 +1,208 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.4.5",
+    "lastTouchedAt": "2026-04-07T18:06:49.677Z"
+  },
+  "browser": {
+    "enabled": true,
+    "headless": true,
+    "noSandbox": true
+  },
+  "acp": {
+    "defaultAgent": "main"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google/gemini-2.5-flash",
+        "fallbacks": [
+          "anthropic/claude-haiku-4-5"
+        ]
+      },
+      "models": {
+        "google/gemini-2.5-flash": {},
+        "anthropic/claude-haiku-4-5": {}
+      },
+      "workspace": "/opt/.openclaw-hos/workspace-main",
+      "memorySearch": {
+        "enabled": true,
+        "sources": [
+          "memory"
+        ],
+        "store": {
+          "path": "/opt/.openclaw-hos/memory/{agentId}.sqlite"
+        }
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "workspace": "/opt/.openclaw-hos/workspace-main",
+        "identity": {
+          "name": "Hutton"
+        },
+        "subagents": {
+          "allowAgents": [
+            "booking",
+            "sales",
+            "fnb",
+            "event",
+            "maintenance",
+            "housekeeping",
+            "concierge",
+            "front",
+            "writer"
+          ]
+        }
+      },
+      {
+        "id": "booking",
+        "workspace": "/opt/.openclaw-hos/workspace-booking",
+        "identity": {
+          "name": "Booking"
+        }
+      },
+      {
+        "id": "sales",
+        "workspace": "/opt/.openclaw-hos/workspace-sales",
+        "identity": {
+          "name": "Sales"
+        }
+      },
+      {
+        "id": "fnb",
+        "workspace": "/opt/.openclaw-hos/workspace-fnb",
+        "identity": {
+          "name": "FNB"
+        }
+      },
+      {
+        "id": "event",
+        "workspace": "/opt/.openclaw-hos/workspace-event",
+        "identity": {
+          "name": "Event"
+        }
+      },
+      {
+        "id": "maintenance",
+        "workspace": "/opt/.openclaw-hos/workspace-maintenance",
+        "identity": {
+          "name": "Maintenance"
+        }
+      },
+      {
+        "id": "housekeeping",
+        "workspace": "/opt/.openclaw-hos/workspace-housekeeping",
+        "identity": {
+          "name": "Housekeeping"
+        }
+      },
+      {
+        "id": "concierge",
+        "workspace": "/opt/.openclaw-hos/workspace-concierge",
+        "identity": {
+          "name": "Concierge"
+        }
+      },
+      {
+        "id": "front",
+        "workspace": "/opt/.openclaw-hos/workspace-front",
+        "identity": {
+          "name": "Front"
+        }
+      },
+      {
+        "id": "writer",
+        "workspace": "/opt/.openclaw-hos/workspace-writer",
+        "identity": {
+          "name": "Writer"
+        },
+        "groupChat": {
+          "mentionPatterns": [
+            "Writer",
+            "@Writer",
+            "writer"
+          ]
+        }
+      }
+    ]
+  },
+  "messages": {
+    "responsePrefix": ""
+  },
+  "gateway": {
+    "mode": "local",
+    "port": 18989,
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "hos123abc"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "controlUi": {
+      "allowedOrigins": [
+        "https://openclaw.gaiada2.online"
+      ]
+    },
+    "trustedProxies": [
+      "127.0.0.1",
+      "::1"
+    ]
+  },
+  "tools": {
+    "profile": "coding"
+  },
+  "plugins": {
+    "entries": {
+      "google": {
+        "enabled": true
+      },
+      "browser": {
+        "enabled": true
+      },
+      "acpx": {
+        "enabled": true,
+        "config": {}
+      },
+      "anthropic": {
+        "enabled": true
+      }
+    },
+    "load": {
+      "paths": [
+        "/opt/.openclaw-hos/plugins/mcp-tools"
+      ]
+    }
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      },
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      }
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-07T18:06:49.411Z",
+    "lastRunVersion": "2026.4.5",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  }
+}
