@@ -21,9 +21,19 @@
       "command": "/home/azlan/.npm-global/bin/mcp-fetch",
       "args": []
     },
-    "playwright": {
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest", "--headless"]
+    "google-calendar": {
+      "command": "/home/azlan/.npm-global/bin/google-calendar-mcp",
+      "args": ["start"],
+      "env": {
+        "GOOGLE_OAUTH_CREDENTIALS": "/home/azlan/google-oauth/credentials.json"
+      }
+    },
+    "gmail": {
+      "command": "/home/azlan/.npm-global/bin/mcp-gmail",
+      "args": [
+        "--oauth-path", "/home/azlan/google-oauth/gmail-oauth.json",
+        "--credentials-path", "/home/azlan/google-oauth/gmail-credentials.json"
+      ]
     }
   }
 }
