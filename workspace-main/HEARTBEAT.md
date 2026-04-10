@@ -1,6 +1,7 @@
 # HEARTBEAT.md
 
-- Review arrivals, departures, and unresolved guest issues in the next 72 hours.
-- Check for maintenance, housekeeping, concierge, F&B, or front-office items missing ownership or follow-up.
-- Surface event or group-stay work missing timing, guest count, budget, or department owner.
-- If nothing material changed, reply `HEARTBEAT_OK`.
+- Review arrivals, departures, unresolved guest issues in next 72hrs.
+- Check maintenance/housekeeping/concierge/F&B/front-office items missing follow-up.
+- Flag customer actions that needs to be delegated.
+- Surface event or group-stay work missing details.
+- If nothing material changed, reply "How may I assist you?"
