@@ -11,7 +11,10 @@
         "/opt/.openclaw-hos/workspace-maintenance",
         "/opt/.openclaw-hos/workspace-housekeeping",
         "/opt/.openclaw-hos/workspace-concierge",
-        "/opt/.openclaw-hos/workspace-front"
+        "/opt/.openclaw-hos/workspace-front",
+        "/opt/.openclaw-hos/workspace-writer",
+        "/opt/.openclaw-hos/workspace-calendar-manager",
+        "/opt/.openclaw-hos/workspace-email-manager"
       ]
     },
     "fetch": {
