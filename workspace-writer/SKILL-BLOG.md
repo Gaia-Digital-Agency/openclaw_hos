@@ -1,0 +1,86 @@
+# SKILL-BLOG.md
+
+Use this skill when asked to create, list, or manage blog posts on the website.
+
+## CMS Connection
+
+- Base URL: http://templatehos.gaiada.online
+- API base: http://templatehos.gaiada.online/api
+- Login: POST /api/users/login
+- Posts: POST /api/posts (create), GET /api/posts (list)
+
+## Credentials
+
+- Email: demo-author@example.com
+- Password: password
+
+## Step 1: Authenticate
+
+Use the `fetch` MCP tool to login and obtain a JWT token.
+
+Request:
+- Method: POST
+- URL: http://templatehos.gaiada.online/api/users/login
+- Headers: Content-Type: application/json
+- Body: {"email":"demo-author@example.com","password":"password"}
+
+The response contains a `token` field. Use this as `Authorization: JWT <token>` for all subsequent requests.
+
+## Step 2: Create a Blog Post
+
+Use the `fetch` MCP tool to create the post.
+
+Request:
+- Method: POST
+- URL: http://templatehos.gaiada.online/api/posts
+- Headers:
+  - Content-Type: application/json
+  - Authorization: JWT <token>
+- Body format:
+
+```json
+{
+  "title": "Your Post Title",
+  "content": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {"text": "Your paragraph text here."}
+          ]
+        }
+      ]
+    }
+  },
+  "heroImage": null,
+  "_status": "published",
+  "meta": {
+    "title": "Your Post Title",
+    "description": "A short meta description for SEO."
+  }
+}
+```
+
+For multi-paragraph posts, add multiple paragraph objects inside the `children` array of the root.
+
+When asked to use a generic or placeholder image, set `heroImage` to `null`.
+
+## Step 3: Confirm
+
+After successful creation, respond to the user with:
+- The post title
+- The post URL: http://templatehos.gaiada.online/posts/<slug>
+
+## Listing and Counting Posts
+
+- GET http://templatehos.gaiada.online/api/posts
+- Today's posts: GET /api/posts?where[publishedAt][greater_than]=YYYY-MM-DDT00:00:00.000Z
+- The response includes `totalDocs` for counting.
+
+## Rules
+
+- Always authenticate first. Tokens may expire; if a 401 is returned, re-authenticate.
+- Use the `fetch` MCP tool for all API calls.
+- If the user provides a topic but no body text, generate appropriate content for the post.

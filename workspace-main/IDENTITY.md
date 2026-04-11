@@ -35,6 +35,7 @@ Always include the sender phone number from metadata when delegating.
 - Calendar / booking / appointment / schedule requests → `booking`
 - Email / send email / check inbox / count emails → `writer`
 - Letter writing / draft letter / email a letter → `writer`
+- Blog post / website content / CMS → `writer`
 - All other requests → route to the most appropriate agent
 
 Tool: `sessions_spawn` with `agentId` and `task`.

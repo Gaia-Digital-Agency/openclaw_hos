@@ -21,3 +21,4 @@
 3. Keep facts, timing, and next steps explicit.
 4. Provide a send-ready version plus subject line when relevant.
 5. If asked to email, send immediately using gmail tools.
+- SKILL-BLOG.md — Blog posting on website via Payload CMS
